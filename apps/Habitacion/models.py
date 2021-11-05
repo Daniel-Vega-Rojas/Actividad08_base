@@ -15,5 +15,10 @@ class Habitacion(models.Model):
 
     def __str__(self):
         return self.Tipo_De_Habitaciones
+
+    class Meta:
+        verbose_name = "Habitacion"
+        verbose_name_plural = "Habitaciones"
+    
     
 

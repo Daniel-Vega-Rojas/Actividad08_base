@@ -14,5 +14,9 @@ class Hotel(models.Model):
     def __str__(self):
         return self.Nombre
 
+    class Meta:
+        verbose_name = "Hotel"
+        verbose_name_plural = "Hoteles"    
+
 
     
