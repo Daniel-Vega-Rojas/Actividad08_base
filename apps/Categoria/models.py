@@ -9,3 +9,9 @@ class Categoria(models.Model):
     def __str__(self):
         return self.Descripcion
 
+
+
+    class Meta:
+        verbose_name = "Categoria"
+        verbose_name_plural = "Categorias"    
+
