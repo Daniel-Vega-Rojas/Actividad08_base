@@ -22,4 +22,8 @@ urlpatterns = [
     path('habitaciones/', include('apps.Habitacion.urls', namespace="habitaciones")),
     path('agencia_de_viajes/', include('apps.Agencia_de_viaje.urls', namespace="agencia_de_viajes")),
     path('personas/', include('apps.Persona.urls', namespace="personas")),
+    path('categorias/', include('apps.Categoria.urls', namespace="categorias")),
+    path('reservas/', include('apps.Reserva.urls', namespace="reservas")),
 ]
+
+
