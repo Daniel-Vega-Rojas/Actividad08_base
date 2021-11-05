@@ -15,3 +15,10 @@ class Agencia_de_viaje(models.Model):
         return self.Nombre
 
 
+
+    class Meta:
+        verbose_name = "Agencia_de_viaje"
+        verbose_name_plural = "Agencia_de_viajes"
+
+
+

@@ -15,3 +15,9 @@ class Persona(models.Model):
         return self.Nombre
 
 
+
+    class Meta:
+        verbose_name = "Persona"
+        verbose_name_plural = "Personas"
+
+
