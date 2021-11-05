@@ -20,3 +20,10 @@ class Reserva(models.Model):
 
     def __str__(self):
         return self.Hora_ingreso
+
+    class Meta:
+        verbose_name = "Reserva"
+        verbose_name_plural = "Reservas"    
+
+
+
