@@ -6,6 +6,7 @@ from django.http import HttpResponse
 
 def index(request):
     return render(request,'Habitacion/index.html')
+    # return HttpResponse ("hola mudno")
     
 
     
