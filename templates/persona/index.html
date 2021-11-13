@@ -2,7 +2,7 @@
 
 
 {% block content %}
-  <h3> Listado De Agencias Viajeras </h3>
+  <h3> Listado De Personas </h3>
 
 
   <table class="table  table-hover table-bordered">
@@ -10,25 +10,24 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
         <th scope="col">Direccion</th>
         <th scope="col">Telefono</th>
-        <th scope="col">Ciudad</th>
       </tr>
     </thead>
     <tbody>
 
-        {% for agencia_de_viaje in agencia_de_viajes %}
+        {% for persona in personas %}
             <tr>
                 
-                <td>{{ agencia_de_viaje.id}}</td>
-                <td>{{ agencia_de_viaje.Nombre}}</td>
-                <td>{{ agencia_de_viaje.Direccion}}</td>
-                <td>{{ agencia_de_viaje.Telefono}}</td>
-                <td>{{ agencia_de_viaje.Ciudad}}</td>
+                <td>{{ persona.id}}</td>
+                <td>{{ persona.Nombre}}</td>
+                <td>{{ persona.Apellido}}</td>
+                <td>{{ persona.Direccion}}</td>
+                <td>{{ persona.Telefono}}</td>
             </tr>
      {% endfor %}
       
-     
     </tbody>
   </table>
   
