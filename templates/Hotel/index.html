@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+  <h3> Listado De Hoteles  </h3>
+
+
+  <table class="table  table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Año_contruccion</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for hotel in hoteles %}
+            <tr>
+                
+                <td>{{ hotel.id}}</td>
+                <td>{{ hotel.Nombre}}</td>
+                <td>{{ hotel.Direccion}}</td>
+                <td>{{ hotel.Año_contruccion}}</td>
+            </tr>
+     {% endfor %}
+      
+     
+    </tbody>
+  </table>
+  
+{% endblock %}
