@@ -3,6 +3,10 @@
 
 {% block content %}
   <h3> Listado De Agencias Viajeras </h3>
+  
+  <h1 class="pull-right"> </h1>
+  <a href="{% url 'Agencia_de_viajes:agencia_de_viajeCreate' %}" class="btn btn-success pull-right" style="margin-top: -10px; margin-bottom: 5px;">Adicionar</a>
+<!-- ////////////////////////////////////////////////////////////// -->
 
 
   <table class="table  table-hover table-bordered">
@@ -17,6 +21,9 @@
     </thead>
     <tbody>
 
+
+      {% if agencia_de_viajes %}
+
         {% for agencia_de_viaje in agencia_de_viajes %}
             <tr>
                 
@@ -25,8 +32,24 @@
                 <td>{{ agencia_de_viaje.Direccion}}</td>
                 <td>{{ agencia_de_viaje.Telefono}}</td>
                 <td>{{ agencia_de_viaje.Ciudad}}</td>
+
+                <td>
+                  <a class="btn btn-warning " href="{% url 'Agencia_de_viajes:agencia_de_viajeEdit' agencia_de_viaje.id %}" >
+                    <i class="fas fa-user-edit"></i>
+                  </a>
+  
+                  
+                  <a class="btn btn-danger " href="{% url 'Agencia_de_viajes:agencia_de_viajeEliminar' agencia_de_viaje.id %}" >
+                    <i class="fas fa-user-times"></i>
+                  </a>
+                </td>
             </tr>
-     {% endfor %}
+      {% endfor %}
+
+      {% else %}
+
+      <h3> No existe Registros De Agencias </h3>
+   {% endif %}
       
      
     </tbody>
