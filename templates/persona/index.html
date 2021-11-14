@@ -1,9 +1,12 @@
 {% extends 'base/base.html' %}
 
-
+<!-- //////////////////////////////////esto es nuevo /////////////////////////// -->
 {% block content %}
   <h3> Listado De Personas </h3>
 
+  <h1 class="pull-right"> </h1>
+  <a href="{% url 'Personas:personaCreate' %}" class="btn btn-success pull-right" style="margin-top: -10px; margin-bottom: 5px;">Adicionar</a>
+<!-- ////////////////////////////////////////////////////////////// -->
 
   <table class="table  table-hover table-bordered">
     <thead>
@@ -16,6 +19,8 @@
       </tr>
     </thead>
     <tbody>
+<!-- ////////////////////////////////////////////////////////////// -->
+      {% if personas %}
 
         {% for persona in personas %}
             <tr>
@@ -25,9 +30,24 @@
                 <td>{{ persona.Apellido}}</td>
                 <td>{{ persona.Direccion}}</td>
                 <td>{{ persona.Telefono}}</td>
+                <td>
+                  <a class="btn btn-warning " href="{% url 'Personas:personaEdit' persona.id %}" >
+                    <i class="fas fa-user-edit"></i>
+                  </a>
+  
+                  
+                  <a class="btn btn-danger " href="{% url 'Personas:personaEliminar' persona.id %}" >
+                    <i class="fas fa-user-times"></i>
+                  </a>
+                </td>
             </tr>
      {% endfor %}
-      
+
+     {% else %}
+
+     <h3> No existe Registros en Personas </h3>
+   {% endif %}
+<!-- ////////////////////////////////////////////////////////////// -->
     </tbody>
   </table>
   
