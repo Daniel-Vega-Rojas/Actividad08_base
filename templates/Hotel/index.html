@@ -2,7 +2,11 @@
 
 
 {% block content %}
-  <h3> Listado De Hoteles  </h3>
+  <h3> Listado De  Hoteles </h3>
+  
+  <h1 class="pull-right"> </h1>
+  <a href="{% url 'Hoteles:hotelCreate' %}" class="btn btn-success pull-right" style="margin-top: -10px; margin-bottom: 5px;">Adicionar</a>
+<!-- ////////////////////////////////////////////////////////////// -->
 
 
   <table class="table  table-hover table-bordered">
@@ -12,9 +16,13 @@
         <th scope="col">Nombre</th>
         <th scope="col">Direccion</th>
         <th scope="col">Año_contruccion</th>
+        {% comment %} <th scope="col">Categoria</th> {% endcomment %}
       </tr>
     </thead>
     <tbody>
+
+
+      {% if hoteles %}
 
         {% for hotel in hoteles %}
             <tr>
@@ -23,8 +31,25 @@
                 <td>{{ hotel.Nombre}}</td>
                 <td>{{ hotel.Direccion}}</td>
                 <td>{{ hotel.Año_contruccion}}</td>
+                <td>{{ hotel.Categoria}}</td>
+
+                <td>
+                  <a class="btn btn-warning " href="{% url 'Hoteles:hotelEdit' hotel.id %}" >
+                    <i class="fas fa-user-edit"></i>
+                  </a>
+  
+                  
+                  <a class="btn btn-danger " href="{% url 'Hoteles:hotelEliminar' hotel.id %}" >
+                    <i class="fas fa-user-times"></i>
+                  </a>
+                </td>
             </tr>
-     {% endfor %}
+      {% endfor %}
+
+      {% else %}
+
+      <h3> No existe Registros De Hoteles </h3>
+   {% endif %}
       
      
     </tbody>
