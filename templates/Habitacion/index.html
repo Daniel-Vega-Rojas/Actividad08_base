@@ -14,7 +14,7 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Tipo_De_Habitaciones</th>
-        <th scope="col">Hotel_id</th>
+        <th scope="col">Hotel</th>
       </tr>
     </thead>
     <tbody>
@@ -27,7 +27,7 @@
                 
                 <td>{{ habitacion.id}}</td>
                 <td>{{ habitacion.Tipo_De_Habitaciones}}</td>
-                <td>{{ Hotel.Hotel_id}}</td>
+                <td>{{ habitacion.Hotel}}</td>
 
                 <td>
                   <a class="btn btn-warning " href="{% url 'Habitaciones:habitacionEdit' habitacion.id %}" >
