@@ -1,9 +1,12 @@
 {% extends 'base/base.html' %}
 
-
+<!-- //////////////////////////////////esto es nuevo /////////////////////////// -->
 {% block content %}
-  <h3> Listado De Categorias  </h3>
+  <h3> Listado De Categorias </h3>
 
+  <h1 class="pull-right"> </h1>
+  <a href="{% url 'Categorias:categoriaCreate' %}" class="btn btn-success pull-right" style="margin-top: -10px; margin-bottom: 5px;">Adicionar</a>
+<!-- ////////////////////////////////////////////////////////////// -->
 
   <table class="table  table-hover table-bordered">
     <thead>
@@ -14,6 +17,8 @@
       </tr>
     </thead>
     <tbody>
+<!-- ////////////////////////////////////////////////////////////// -->
+      {% if categorias %}
 
         {% for categoria in categorias %}
             <tr>
@@ -21,10 +26,24 @@
                 <td>{{ categoria.id}}</td>
                 <td>{{ categoria.Iva}}</td>
                 <td>{{ categoria.Descripcion}}</td>
+                <td>
+                  <a class="btn btn-warning " href="{% url 'Categorias:categoriaEdit' categoria.id %}" >
+                    <i class="fas fa-user-edit"></i>
+                  </a>
+  
+                  
+                  <a class="btn btn-danger " href="{% url 'Categorias:categoriaEliminar' categoria.id %}" >
+                    <i class="fas fa-user-times"></i>
+                  </a>
+                </td>
             </tr>
      {% endfor %}
-      
-     
+
+     {% else %}
+
+     <h3> No existe Registros en Categorias </h3>
+   {% endif %}
+<!-- ////////////////////////////////////////////////////////////// -->
     </tbody>
   </table>
   
