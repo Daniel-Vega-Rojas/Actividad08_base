@@ -3,6 +3,10 @@
 
 {% block content %}
   <h3> Listado De Reservas </h3>
+  
+  <h1 class="pull-right"> </h1>
+  <a href="{% url 'Reservas:reservaCreate' %}" class="btn btn-success pull-right" style="margin-top: -10px; margin-bottom: 5px;">Adicionar</a>
+<!-- ////////////////////////////////////////////////////////////// -->
 
 
   <table class="table  table-hover table-bordered">
@@ -12,19 +16,44 @@
         <th scope="col">Fecha_ingreso</th>
         <th scope="col">Fecha_salida</th>
         <th scope="col">Hora_ingreso</th>
+        <th scope="col">Hotel</th>
+        <th scope="col">Persona</th>
+        <th scope="col">Agencia_de_viaje</th>
       </tr>
     </thead>
     <tbody>
 
-        {% for reserva in reservas %}
+
+      {% if reservas %}
+
+        {% for reservas in reservas %}
             <tr>
                 
-                <td>{{ reserva.ID}}</td>
+                <td>{{ reserva.id}}</td>
                 <td>{{ reserva.Fecha_ingreso}}</td>
                 <td>{{ reserva.Fecha_salida}}</td>
                 <td>{{ reserva.Hora_ingreso}}</td>
+                <td>{{ reserva.Hotel}}</td>
+                <td>{{ reserva.Persona}}</td>
+                <td>{{ reserva.Agencia_de_viaje}}</td>
+
+                <td>
+                  <a class="btn btn-warning " href="{% url 'Reservas:reservaEdit' reserva.id %}" >
+                    <i class="fas fa-user-edit"></i>
+                  </a>
+  
+                  
+                  <a class="btn btn-danger " href="{% url 'Reservas:reservaEliminar' reserva.id %}" >
+                    <i class="fas fa-user-times"></i>
+                  </a>
+                </td>
             </tr>
-     {% endfor %}
+      {% endfor %}
+
+      {% else %}
+
+      <h3> No existe Registros De Reservas </h3>
+   {% endif %}
       
      
     </tbody>
