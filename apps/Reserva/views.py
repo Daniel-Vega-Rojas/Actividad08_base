@@ -14,10 +14,9 @@ def home(request):
 
 def index(request):
     reserva = Reserva.objects.all().order_by('-id')
-    context = {'reserva': reserva}
+    context = {'reservas': reserva}
     return render(request, 'Reserva/index.html', context)
     # return render(request,'Agencia_de_viaje/index.html')
-
 
     # /////////////////////////////////////Codigo de Crear - mostrar///////////////////////////
 
@@ -47,7 +46,7 @@ def reservaEdit(request,id_reserva):
         form = ReservaForm(request.POST, instance=reserva)
         if form.is_valid():
             form.save()
-        return redirect('Reserva:index')
+        return redirect('Reservas:index')
     
     return render(request, 'Reserva/formReserva.html', {'form': form})
 
