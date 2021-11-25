@@ -47,7 +47,7 @@ def hotelEdit(request,id_hotel):
         form = HotelForm(request.POST, instance=hotel)
         if form.is_valid():
             form.save()
-        return redirect('Hotel:index')
+        return redirect('Hoteles:index')
     
     return render(request, 'Hotel/formHotel.html', {'form': form})
 
